@@ -1,6 +1,6 @@
 <template>
   <section class="msite">
-    <GshopHeader :title="'123外卖'">
+    <GshopHeader :title="address.name?address.name:'定位中...'">
       <template v-slot:left>
         <span class="header_search">
           <i class="iconfont icon-icon-test"></i>
@@ -296,6 +296,7 @@
 </template>
 
 <script>
+import {mapState} from 'vuex'
 export default {
   name: '',
   data() {
@@ -306,10 +307,17 @@ export default {
   props: {
 
   },
+  computed: {
+    // ...mapState(['address']) 不能自定义映射的key值
+    ...mapState({
+      address: state => state.address,
+      categorys: state => state.categorys
+    })
+  },
   components: {
   },
-  mounted() {
-
+  async mounted() {
+    this.$store.dispatch('getAddressAction')
   },
   methods: {
 
