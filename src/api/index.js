@@ -9,9 +9,9 @@ export const getAddress = (latitude, longitude) => ajax({
 /* 获取食品分类列表 */
 export const getCategorys = () => ajax({
   url: '/index_category',
-  headers: {
-    needToken: true
-  }
+  // headers: {
+  //   needToken: true
+  // }
 })
 
 
@@ -22,9 +22,9 @@ export const getShopList = (latitude, longitude) => ajax({
     latitude,
     longitude
   },
-  headers: {
-    needToken: true
-  }
+  // headers: {
+  //   needToken: true
+  // }
 })
 
 
