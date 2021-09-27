@@ -102,9 +102,9 @@
 </template>
 
 <script>
-  // import {MessageBox} from 'mint-ui'
+  import {MessageBox} from 'mint-ui'
   import {mapState} from 'vuex'
-  // import {LOGOUT} from '../../store/mutations-type'
+  import {LOGOUT} from '../../store/mutations-type'
   export default {
     methods:{
       toLogin(){
@@ -119,11 +119,11 @@
         //   this.$store.commit(LOGOUT)
         // }
 
-        // MessageBox.confirm('确认退出吗')
-        //   .then(
-        //     actionAgree => this.$store.commit(LOGOUT),
-        //     actionReject => console.log('取消退出'),
-        //   )
+        MessageBox.confirm('确认退出吗')
+          .then(
+            () => this.$store.commit(LOGOUT),
+            () => console.log('取消退出'),
+          )
       }
     },
     computed: {
