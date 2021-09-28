@@ -44,6 +44,7 @@ const mutations = {
     }
   },
   [CLEAR_CARTSHOPS](state){
+    // cartShops里的food，和shopDatas里的food指向同一块内存，所以这里把count置为0，shopDatas里的food的count也为0，页面就同步了
     state.cartShops.forEach(food => food.count = 0)
     
     state.cartShops = []
@@ -73,15 +74,16 @@ const actions = {
 
 const getters = {
   // 计算一个数组： 包含所有food.count>的food
-  // cartShops(state){ 性能较差，food.count每改变一次就会重新计算整个数组
+  // cartShops(state){ 性能较差，food.count每改变一次就会重新计算整个数组，遍历goods运算量很大
   //   return state.shopDatas.goods.reduce((pre, good) => {
   //     console.log(pre, good);
-  //     // 1. good.foods.filter(food => food.count > 0) 过滤出food.count>0d的数组
+  //     // 1. good.foods.filter(food => food.count > 0) 过滤出food.count>0的数组
   //     pre.push(...good.foods.filter(food => food.count > 0))
   //     return pre
   //   }, [])
   // }
   
+  // 更好的方法
   totalCount(state){
     return state.cartShops.reduce((pre, food) => {
       return pre += food.count

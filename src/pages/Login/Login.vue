@@ -61,8 +61,8 @@
               </section>
             </section>
           </div>
-          <!-- <button class="login_submit" @click.prevent="login">{{$t('login')}}</button> -->
-          <button class="login_submit" @click.prevent="login">登录</button>
+          <button class="login_submit" @click.prevent="login">{{$t('login')}}</button>
+          <!-- <button class="login_submit" @click.prevent="login">登录</button> -->
         </form>
         <a href="javascript:;" class="about_us">关于我们</a>
       </div>
@@ -169,7 +169,7 @@
       }
     },
     mounted(){
-      // this.$i18n.locale = 'Chinese'
+      this.$i18n.locale = 'Chinese'
     }
   }
 </script>
